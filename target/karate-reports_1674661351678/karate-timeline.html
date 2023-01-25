@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-2","id":1},{"content":"pool-1-thread-1","id":2}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/getEndPoint\/getEndPoint[1:3]","start":1674660466505,"end":1674660468100,"title":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/getEndPoint\/getEndPoint[1:3] 20:57:46.505-20:57:48.100 Verify The getEndpoint"},{"id":2,"group":1,"content":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/postEndPoint\/createUserDetaiels[1:7]","start":1674660468108,"end":1674660469151,"title":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/postEndPoint\/createUserDetaiels[1:7] 20:57:48.108-20:57:49.151 Verify The Create New User Feature"},{"id":3,"group":2,"content":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/getAllUser\/Get_All_User[1:4]","start":1674660466505,"end":1674660468285,"title":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/getAllUser\/Get_All_User[1:4] 20:57:46.505-20:57:48.285 Accesses Token"},{"id":4,"group":2,"content":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/putUserpoint\/modifyUser[1:3]","start":1674660468310,"end":1674660469151,"title":"src\/test\/java\/com\/API_Github_Ex\/All_EndPoints\/putUserpoint\/modifyUser[1:3] 20:57:48.310-20:57:49.151 Verify The putEndpoint"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
